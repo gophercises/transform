@@ -65,7 +65,9 @@ func Transform(image io.Reader, ext string, numShapes int, opts ...func() []stri
 	if err != nil {
 		return nil, fmt.Errorf("primitive: failed to run the primitive command. stdcombo=%s", stdCombo)
 	}
-	fmt.Println(stdCombo)
+	// if strings.TrimSpace(stdCombo) == "" {
+	// 	panic(stdCombo)
+	// }
 
 	// read out into a reader, return reader, delete out
 	b := bytes.NewBuffer(nil)
