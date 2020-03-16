@@ -210,5 +210,6 @@ func tempfile(prefix, ext string) (*os.File, error) {
 		return nil, errors.New("main: failed to create temporary file")
 	}
 	defer os.Remove(in.Name())
+	defer in.Close()
 	return os.Create(fmt.Sprintf("%s.%s", in.Name(), ext))
 }
